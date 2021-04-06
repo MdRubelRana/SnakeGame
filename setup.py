@@ -1,6 +1,6 @@
 from cx_Freeze import *
 import sys
-includefiles=['assets/icon.ico','assets/head.gif','assets/tail.gif','assets/apple.gif']
+includefiles=['icon.ico','head.gif','tail.gif','apple.gif']
 base=None
 if sys.platform=="win32":
     base="Win32GUI"
@@ -33,7 +33,7 @@ setup(
         Executable(
             script="snake.py",
             base=base,
-            icon='assets/icon.ico',
+            icon='icon.ico',
         )
     ]
 )

@@ -1,5 +1,4 @@
 from turtle import *
-import tkinter
 import time
 import random
 
@@ -14,20 +13,20 @@ root.title('Snake Game')
 root.setup(width=600, height=600)
 root.bgcolor('#222f3e')
 
-root.addshape('assets/head.gif')
-root.addshape('assets/tail.gif')
-root.addshape('assets/apple.gif')
+root.addshape('head.gif')
+root.addshape('tail.gif')
+root.addshape('apple.gif')
 
 root.tracer(False)  # Reduced the animation speed
 
 head = Turtle()
-head.shape('assets/head.gif')
+head.shape('head.gif')
 head.penup()    # Remove turtle line
 head.goto(0, 0)
 head.direction = 'stop'
 
 food = Turtle()
-food.shape('assets/apple.gif')
+food.shape('apple.gif')
 food.color('orange')
 food.penup()
 food.goto(0, 100)
@@ -39,31 +38,31 @@ pen.color('white')
 pen.penup()
 pen.hideturtle()
 pen.goto(255, 268)
-pen.write('Score:0', align='right', font=('ubuntu', 14, 'bold'))
+pen.write('Score: 0', align='right', font=('ubuntu', 14, 'bold'))
 
 
 def go_down():
     if head.direction != 'up':
         head.direction = 'down'
-        head.shape('assets/head.gif')
+        head.shape('head.gif')
 
 
 def go_up():
     if head.direction != 'down':
         head.direction = 'up'
-        head.shape('assets/head.gif')
+        head.shape('head.gif')
 
 
 def go_left():
     if head.direction != 'right':
         head.direction = 'left'
-        head.shape('assets/head.gif')
+        head.shape('head.gif')
 
 
 def go_right():
     if head.direction != 'left':
         head.direction = 'right'
-        head.shape('assets/head.gif')
+        head.shape('head.gif')
 
 
 def move():
@@ -118,7 +117,7 @@ while True:
         delay = 0.1
 
         pen.clear()
-        pen.write(f'Score:{score} ', align='right',
+        pen.write(f'Score: {score} ', align='right',
                   font=('ubuntu', 14, 'bold'))
 
     if head.distance(food) < 20:
@@ -128,7 +127,7 @@ while True:
         delay -= 0.003
 
         new_segment = Turtle()
-        new_segment.shape('assets/tail.gif')
+        new_segment.shape('tail.gif')
         new_segment.color('grey')
         new_segment.penup()
         segments.append(new_segment)
@@ -136,7 +135,7 @@ while True:
         score = score + 10
 
         pen.clear()
-        pen.write(f'Score:{score}', align='right',
+        pen.write(f'Score: {score}', align='right',
                   font=('ubuntu', 14, 'bold'))
 
     for index in range(len(segments) - 1, 0, -1):
@@ -164,7 +163,7 @@ while True:
             score = 0
             delay = 0.1
             pen.clear()
-            pen.write(f'Score:{score} ', align='right',
+            pen.write(f'Score: {score} ', align='right',
                       font=('ubuntu', 14, 'bold'))
 
     time.sleep(delay)
